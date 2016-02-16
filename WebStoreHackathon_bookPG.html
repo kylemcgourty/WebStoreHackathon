@@ -1,0 +1,298 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.1.js">
+   
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css_for_Webstore.css">
+    <title> Webstore Hackathon </title>
+</head>
+
+<body>
+    <div class="page-header">
+        <h1 class="center"> Webstore California <small> Everything needed to chill in the Golden State</small></h1>
+    </div>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a>Home</a></li>
+        <li role="presentation" ><a id="add1">See Running</a></li>
+        <li role="presentation"><a id="add2">See Books</a></li>
+        <li role="presentation"><a id="add3">Show All</a></li>
+    </ul>
+    	<h2> Selected Listings </h2>
+    <div id="content" class="center">
+<!-- 
+        <div id="book1" class="psychology" class="product">
+            <p class="name" class="label label-default"> <span>
+                </p>
+                <p></p>
+                    <p class="category">  </p>
+                    <p class="price">  </p>
+                    <p> <img class="image" height=400px width=300px> </p>
+                    <p class="selling points"></p>
+        </div>
+        <div id="book2" class="biology" class="product">
+            <p class="name" class="label label-success">  
+                </p>
+                <p></p>
+                    <p class="category">  </p>
+                    <p class="price"> </p>
+                    <p> <img class="image" height=400px width=300px> </p>
+                    <p class="selling points">  </p>
+        </div> -->
+        </div>
+        <div id="content2" class="center">
+       <!--  <div id="product1" class="gear" class="product">
+            <p class="name" class="label label-default"> </p>
+            		<p></p>
+                    <p class="category"> </p>
+                    <p class="price"> </p>
+                    <p> <img class="image" height=400px width=300px> </p>
+                    <p class="selling points"></p>
+        </div>
+        <div id="product2" class="shoes" class="product">
+            <p class="name" class="label label-success"> 
+                </p>
+                	<p></p>
+                    <p class="category"> </p>
+                    <p class="price"> </p>
+                    <p> <img class="image" height=400px width=300px> </p>
+                    <p class="selling points">  </p>
+        </div> -->
+    </div>
+    <footer class="footer">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                Webstore
+                <p> Copyright 2016 </p>
+            </div>
+        </nav>
+    </footer>
+    <script>
+
+    	var arrOfB = [
+                   {
+                   	name: "Daniel Kahneman", 
+                    title: "Thinking, Fast and Slow",
+                    category: "Category: Psychology",
+                    price: 21,
+                    img_url: "http://www.behavioraleconomics.com/wp-content/uploads/2015/03/ThinkingFastAndSlow.jpg",
+                    selling_points: ['A', 'book', 'on', 'the', 'the', 'psychology', 'of', 'thinking', 'from', 'the', 'Nobel', 'Prize', 'Winner', 'in', 'Economics.' ],
+                    id: "kan"
+                    },
+
+                     {
+                    	name: "Nick Lane",
+                    	title: "The Vital Question",
+                    	category: "Category: Biology",
+                    	price: 17,
+                    	img_url: "http://ecx.images-amazon.com/images/I/412FtSXEG2L._SX327_BO1,204,203,200_.jpg",
+              			selling_points: [ 'A', 'proposed', 'theory', 'on', 'the', 'evolution', 'of', 'eurkaryotic', 'cells..' ],
+              			id: "lane"
+
+                    } ];
+
+          var arrOfRun =[
+          			{
+                    	name: "FitBit",
+                    	title: "Charge",
+                    	category: "Category: Running accesory",
+                    	price: 90,
+                    	img_url: "https://static1.fitbit.com/simple.b-cssdisabled-png.h1b5eeed389c93a00f375564cdec89e54.pack?items=%2Fcontent%2Fassets%2Fcharge%2Fimages%2Fslide-01-charge.png", 
+                    	selling_points: [ 'Track', 'your', 'steps,', 'miles,', 'and', 'elevation', 'change.' ],
+                    	id: "fit"
+                    },
+
+
+                    {
+                    	name: "Vibram",
+                    	title: "FiveFingers Shoe",
+                    	category: " Category: Shoes",
+                    	price: 80,
+                    	img_url: "http://ecx.images-amazon.com/images/I/914LhlnocfL._UX585_.jpg",
+               			selling_points: [ 'Barefoot', 'shoes', 'to', 'help', 'you', 'run', 'fast', 'and', 'stay', 'injury', 'free.' ],
+               			id: "vib"
+                    }];
+
+
+      var add_to_page2book = function (arr) {
+        for (var i=0; i<arr.length; i++) {
+          var myId = '#' + i;
+          $('#content').append('<div id="' + i + '"></div>');
+          $(myId).append('<div class="name"></div>')
+          $(myId).append('<p></p><div class="category"></div>');
+          $(myId).append('<div class="price"></div>');
+          $(myId).append('<img class="image"><br><br><br>');
+          $(myId + " .name").append(arrOfRun[i].name +"\'s " + arrOfRun[i].title).attr('class', 'label label-default').css('font-size', '150%');
+          $(myId + " .category").text(arrOfRun[i].category);
+          $(myId + " .price").text('$' + arrOfRun[i].price);
+          $(myId + " .image").attr('src', arrOfRun[i].img_url);
+        }
+      };
+
+      var add_to_page2product = function (arr) {
+        for (var i=0; i<arr.length; i++) {
+          var myId = '#val' + i;
+          $('#content2').append('<div id="val' + i + '"></div>');
+          $(myId).append('<div class="name"></div>')
+          $(myId).append('<p></p><div class="category"></div>');
+          $(myId).append('<div class="price"></div>');
+          $(myId).append('<img class="image"><br><br><br>');
+          $(myId + " .name").append(arrOfB[i].name +"\'s " + arrOfB[i].title).attr('class', 'label label-default').css('font-size', '150%');
+          $(myId + " .category").text(arrOfB[i].category);
+          $(myId + " .price").text('$' + arrOfB[i].price);
+          $(myId + " .image").attr('src', arrOfB[i].img_url);
+        }
+      };
+
+
+
+
+//   		var add_to_page2book = function (arr) {
+//   			for (var i=0; i<arr.length; i++) {
+//   				if(i=0) {i="a";}
+//   				else if(i=1){i="b"}
+//   				else if(i=2){i="c"}
+
+// var $content = $('#content)
+// var i = 0;
+//   		 $content.append('<div id="holder"></div>');
+//          $content.append('<div class="name"></div>')
+//          $content.append ('<p></p><div class="category"></div>');
+//          $content.append('<div class="price"></div>');
+//          $content.append('<img class="image"><br><br><br>');
+
+//          $('content .name').append(arrOfB[i].name +"\'s " + arrOfB[i].title).attr('class', 'label label-default').css('font-size', '150%');
+// 		$("'#"+i +" .category'").text(arrOfB[i].category);
+// 		$("'#"+i+ " .price'").text('$' + arrOfB[i].price);
+// 		$("'#" +i+ " .image'").attr('src', arrOfB[i].img_url);
+//   			}
+//   		};
+
+
+// <div id=“kyle”></div>
+
+// [3:58] 
+// var $kyle = $(‘#kyle’);
+
+// [3:58] 
+// $kyle.append()
+
+
+// $kyle.append()
+
+
+
+         var add_to_page = function (item) {
+         	if (item === "book1") {
+
+         	// .html($('<div class=name>').text(book1.name)))
+         $('#content').append('<div id="book1"></div>');
+         $('#book1').append('<div class="name"></div>');
+         $('.name').after('<p></p><div class="category"></div>');
+         $('.category').after('<div class="price"></div>');
+         $('.price').after('<img class="image"><br><br><br>');
+
+
+        $('#book1 .name').append(arrOfB[0].name +"'s " + arrOfB[0].title).attr('class', 'label label-default').css('font-size', '150%');
+		$('#book1 .category').text(arrOfB[0].category);
+		$('#book1 .price').text('$' + arrOfB[0].price);
+		$('#book1 .image').attr('src', arrOfB[0].img_url);
+         	}
+         	else if (item === "book2") {
+         $('#content').append('<div id="book2"></div>');
+         $('#book2').append('<div class="name"></div>');
+         $('.name').after('<p></p><div class="category"></div>');
+         $('.category').after('<div class="price"></div>');
+         $('.price').after('<img class="image"> <br><br><br>');		
+
+        $('#book2 .name').append(arrOfB[1].name +"'s " + arrOfB[1].title).attr('class', 'label label-default').css('font-size', '150%');
+		$('#book2 .category').text(arrOfB[1].category);
+		$('#book2 .price').text("$" + arrOfB[1].price);
+		$('#book2 .image').attr('src', arrOfB[1].img_url);	
+         	}
+         	else if (item === "product1") {
+		 $('#content2').append('<div id="product1"></div>');
+         $('#product1').append('<div class="name"></div>');
+         $('.name').after('<p></p><div class="category"></div>');
+         $('.category').after('<div class="price"></div>');
+         $('.price').after('<img class="image"> <br><br><br>');	
+
+
+         $('#product1 .name').text(arrOfRun[0].name +"'s" + arrOfRun[0].title).attr('class', 'label label-default').css('font-size', '150%');
+		$('#product1 .category').text(arrOfRun[0].category);
+		$('#product1 .price').text("$" + arrOfRun[0].price);
+		$('#product1 .image').attr('src',arrOfRun[0].img_url);
+
+         	} else if (item === "product2") {
+
+         $('#content2').append('<div id="product2"></div>');
+         $('#product2').append('<div class="name"></div>');
+         $('.name').after('<p></p><div class="category"></div>');
+         $('.category').after('<div class="price"></div>');
+         $('.price').after('<img class="image"> <br><br><br>');	
+
+        $('#product2 .name').text(arrOfRun[1].name +"'s" + arrOfRun[1].title).attr('class', 'label label-default').css('font-size', '150%');
+		$('#product2 .category').text(arrOfRun[1].category);
+		$('#product2 .price').text("$" + arrOfRun[1].price);
+		$('#product2 .image').attr('src', arrOfRun[1].img_url);	
+         	}
+         };
+
+
+ // $('.nav nav-tabs').on('click', '.add1', function(){$("#content").empty()});
+ //  $('document').ready($('.nav nav-tabs').on('click', '.add1', add_to_page("book1")));
+
+$('#0').css("background-color", "yellow");
+
+
+   
+add_to_page2book(arrOfB);
+add_to_page2product(arrOfRun);
+// add_to_page("book2");
+// add_to_page("product1");
+// add_to_page("product2");
+
+$('#content').hide();
+$('#content2').hide();
+ // document.querySelector('add1').addEventListener('click', function () {.show()});
+ $('#add1').on('click', function () {$('#content').show(); $('#content2').hide(); });
+  $('#add2').on('click', function () {$('#content2').show(); $('#content').hide();});
+  $('#add3').on('click', function () {$('#content').show(); $('#content2').show()});
+  // ('.add1').click(add_to_page("book1"));
+
+
+    // ('.running').click(add_to_page("product1"); add_to_page("product2"));
+
+		// $('#book1 .name').text(book1.name +"\'s " + book1.title);
+		// $('#book1 .name').append(book1.name +"'s " + book1.title).attr('class', 'label label-default').css('font-size', '150%');
+		// $('#book1 .category').text(book1.category);
+		// $('#book1 .price').text(book1.price);
+		// $('#book1 .image').attr('src', book1.img_url);
+		// // $('#book1 .selling points').text(book1.selling_points);
+
+		// $('#book2 .name').append(book2.name +"'s " + book2.title).attr('class', 'label label-default').css('font-size', '150%');
+		// $('#book2 .category').text(book2.category);
+		// $('#book2 .price').text(book2.price);
+		// $('#book2 .image').attr('src', book2.img_url);
+		// $('#book2 .selling points').text(book2.selling_points)
+
+		// $('#product1 .name').text(running1.name +"'s" + running1.title).attr('class', 'label label-default').css('font-size', '150%');
+		// $('#product1 .category').text(running1.category);
+		// $('#product1 .price').text(running1.price);
+		// $('#product1 .image').attr('src', running1.img_url);
+		// // $('product1 .selling points').text(running1.selling_points);
+
+		// $('#product2 .name').text(running2.name +"'s" + running2.title).attr('class', 'label label-default').css('font-size', '150%');
+		// $('#product2 .category').text(running2.category);
+		// $('#product2 .price').text(running2.price);
+		// $('#product2 .image').attr('src', running2.img_url);
+		// $('product2 .selling points').text(running1.selling_points);
+
+
+    $('.name').css('font-size', '200%');
+    $('body').css('margin-left', '5%')
+    </script>
+</body>
+
+</html>
